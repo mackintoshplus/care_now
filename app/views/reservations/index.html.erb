@@ -1,0 +1,11 @@
+<h1>Reservations for <%= Date.today.strftime("%Y-%m-%d") %></h1>
+
+<div class="reservation-info">
+  <p>Total reservations today: <%= @current_reservations %> / 15</p>
+  
+  <% if @current_reservations < 15 %>
+    <%= link_to "Make a Reservation", new_reservation_path, class: "reservation-button" %>
+  <% else %>
+    <p class="full-message">Sorry, we're fully booked for today.</p>
+  <% end %>
+</div>

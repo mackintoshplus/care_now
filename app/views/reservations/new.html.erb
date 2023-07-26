@@ -1,0 +1,12 @@
+<div class="reservation-container">
+    <h1><%= Date.today.strftime('%Y年%m月%d日') %></h1>
+    <div class="info">
+        <p>最大予約人数: 15人</p>
+        <p>現在の予約人数: <%= @current_reservations %>人</p>
+    </div>
+    <% if @current_reservations < 15 %>
+        <%= link_to "予約する", reservations_path, method: :post, class: "reservation-button" %>
+    <% else %>
+        <p class="full-message">本日の予約は満員です。</p>
+    <% end %>
+</div>
