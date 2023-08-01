@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    reservation = Reservation.new(date: Date.today)
+    reservation = current_user.reservations.new(date: Date.today)
   
     if reservation.save
       redirect_to reservations_path, notice: '予約しました'
