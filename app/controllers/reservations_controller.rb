@@ -5,9 +5,16 @@ class ReservationsController < ApplicationController
 
   def new
     @current_reservations = Reservation.where(date: Date.today).count
+    @user_has_reservation_today = current_user.reservations.where(date: Date.today).exists?
   end
 
   def create
+    if current_user.reservations.where(date: Date.today).exists?
+      redirect_to new_reservation_path, alert: '本日の予約は完了しております'
+      return
+    end
+      
+    
     reservation = current_user.reservations.new(date: Date.today)
   
     if reservation.save

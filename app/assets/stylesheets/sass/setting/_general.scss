@@ -1,15 +1,25 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
+  font-family: 'Arial', sans-serif;
+  background-color: #f6f5f2;
 }
 
 .main-container {
   margin-top: 80px;
   background: #ffffff;
   min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .alert {
   width: 90%;
   margin: 5px auto;
+}
+
+#menu {
+  list-style-type: none;  // ドットを削除
 }

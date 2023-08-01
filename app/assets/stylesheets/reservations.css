@@ -16,6 +16,7 @@
 
     .info {
         margin: 20px 0;
+
         p {
             margin: 0;
             font-size: 1.2em;
@@ -43,48 +44,10 @@
 }
 
 .reservation-info {
-  font-size: 1.5rem;
-  margin: 20px 0;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.reservation-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 10px;
-  transition: background-color 0.3s;
-}
-
-.reservation-button:hover {
-  background-color: #45a049;
-}
-
-.full-message {
-  color: red;
-  font-weight: bold;
-}
-
-.reservation-info {
-  padding: 20px;
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
-}
-
-.reservation-button {
-  padding: 10px 20px;
-  background-color: #007BFF;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.full-message {
-  color: red;
+    font-size: 1.5rem;
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
 }
