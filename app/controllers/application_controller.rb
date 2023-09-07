@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
-  # この行を追加
   before_action :authenticate_user!
+  
+  def after_sign_in_path_for(resource)
+    resource.role == 'admin' ? admin_dashboard_index_path : root_path
+  end
 end

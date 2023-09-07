@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  # Reservations routes
   resources :reservations, only: [:index, :new, :create, :destroy]
-
-  # Root path route
+  
+  namespace :admin do
+    get 'dashboard/index'
+    resources :dashboard, only: [:index]
+  end
+  
   root "reservations#index"
 end
