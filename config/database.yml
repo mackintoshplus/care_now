@@ -22,10 +22,10 @@ development:
 
 test:
   <<: *default
-  database: rails
+  database: rails3
 
 production:
   <<: *default
-  database: rails
+  database: rails3
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>

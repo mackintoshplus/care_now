@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'dashboard/index'
     resources :dashboard, only: [:index]
+    resources :entry_logs, only: [:new, :create]
   end
   
   root "reservations#index"
