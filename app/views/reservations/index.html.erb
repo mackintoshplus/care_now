@@ -1,8 +1,9 @@
 <h1>Reservations for <%= Date.today.strftime("%Y-%m-%d") %></h1>
 
 <div class="barcode">
-  <img src="<%= generate_barcode %>" alt="JAN Barcode">
+  <img src="<%= generate_barcode_for_user(current_user) %>" alt="JAN Barcode">
 </div>
+
 
 <div class="reservation-info">
   <p>Total reservations today: <%= @current_reservations %> / 15</p>

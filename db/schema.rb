@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_14_001426) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_20_002145) do
   create_table "entry_logs", charset: "utf8mb4", force: :cascade do |t|
-    t.string "barcode"
     t.datetime "entry_time"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "exit_time"
     t.index ["user_id"], name: "index_entry_logs_on_user_id"
   end
 

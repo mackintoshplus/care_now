@@ -1,26 +1,16 @@
 module ReservationsHelper
-  def generate_barcode
+  def generate_barcode_for_user(user)
+    puts "Debug: User ID - #{user.id}, Barcode - #{user.barcode_number}"
     require 'barby'
     require 'barby/barcode/ean_13'
     require 'barby/outputter/png_outputter'
 
-    # ユニークな12桁の番号を生成します。
-    unique_number = generate_unique_number_for_user
+    # 最後の1桁（チェックディジット）を除いた12桁の数字を取得
+    ean_number_without_check_digit = user.barcode_number[0..-2]
 
-    ean = Barby::EAN13.new(unique_number)
+    ean = Barby::EAN13.new(ean_number_without_check_digit)
 
-    # バーコードをBase64でエンコードします。
     barcode_png = Barby::PngOutputter.new(ean).to_png(xdim: 1)
     "data:image/png;base64,#{Base64.encode64(barcode_png)}"
-  end
-
-  def generate_unique_number_for_user
-    loop do
-      random_number = rand(1_000_000_000_000..9_999_999_999_999).to_s[0, 12]
-      # usersテーブルにすでにその番号が存在しないことを確認します。
-      unless User.exists?(barcode_number: random_number)
-        return random_number
-      end
-    end
   end
 end

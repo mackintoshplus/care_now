@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'dashboard/index'
     resources :dashboard, only: [:index]
-    resources :entry_logs, only: [:new, :create]
+    resources :entry_logs, only: [:new, :create] do
+      collection do
+        get 'exit'
+        patch :update_exit_time
+      end
+    end
   end
   
   root "reservations#index"
